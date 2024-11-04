@@ -17,11 +17,17 @@
             _tableNumber = tableNumber;
         }
 
+        // Lägger till rätter i beställningen (listan)
+        public void AddItem(MenuItem item)
+        {
+            _orderItems.Add(item);
+        }
+
         public override string ToString()
         {
-            // Vid beställning av flera 'items' sammanfogas dessa till en sträng
+            // Vid beställning av flera rätter sammanfogas dessa till en sträng
             string items = string.Join(", ", _orderItems);
-            return $"Order ID: {_orderId}, Table: {_tableNumber}, Items: {items}";
+            return $"ID: {_orderId}, Table: {_tableNumber}, Items: {items}";
         }
 
 

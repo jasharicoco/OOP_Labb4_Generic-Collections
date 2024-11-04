@@ -16,6 +16,7 @@
         // Visar menyn
         public void ShowMenu()
         {
+            Console.WriteLine("Menu:");
             foreach (var item in _menu)
             {
                 Console.WriteLine(item);
@@ -23,10 +24,10 @@
         }
 
         // Skapar en order och lägger den högst upp på listan samt loggar detta
-        public void CreateOder(Order order)
+        public void CreateOrder(Order order)
         {
             _orders.Enqueue(order);
-            Console.WriteLine($"New order created: {order}");
+            Console.WriteLine($"NEW ORDER: {order}");
         }
 
         // Hanterar (tar bort) order som är först i kön och loggar detta
@@ -39,6 +40,7 @@
         // Skriv ut alla ordrar i kön
         public void ShowOrders()
         {
+            Console.WriteLine("List of current orders:");
             foreach (var order in _orders)
             {
                 Console.WriteLine(order);
