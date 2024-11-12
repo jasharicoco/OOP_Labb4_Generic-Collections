@@ -57,7 +57,19 @@
         // Skriv ut antal ordrar i kön
         public void ShowOrderCount()
         {
-            Console.WriteLine(_orders.Count);
+            if (_orders.Count == 1)
+            {
+                Console.WriteLine($"Det är {_orders.Count} order i kön.");
+            }
+            else if (_orders.Count > 1)
+            {
+                Console.WriteLine($"Det är {_orders.Count} ordrar i kön.");
+            }
+            else if (_orders.Count == 0)
+            {
+                Console.WriteLine("Det finns inga ordrar i kön.");
+            }
+            
         }
 
 
