@@ -28,6 +28,7 @@
             Ziggi.AddToMenu(PineapplePizza);
             Ziggi.AddToMenu(SourdoughGarlicSlices);
             Ziggi.AddToMenu(SoftDrinks);
+            Console.WriteLine();
 
             Console.WriteLine("--------------");
             // Skriver ut menyn

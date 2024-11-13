@@ -3,7 +3,7 @@
     internal class Order
     {
         // I denna klass använder vi i stället private fields
-        static int orderIdCounter = 1;
+        public static int orderIdCounter = 1;
         private int _orderId;
         private List<MenuItem> _orderItems;
         private int _tableNumber;
@@ -25,9 +25,14 @@
 
         public override string ToString()
         {
+            decimal totalCost = 0;
+            foreach (var cost in _orderItems)
+            {
+                totalCost += cost.Price;
+            }
             // Vid beställning av flera rätter sammanfogas dessa till en sträng
             string items = string.Join(", ", _orderItems);
-            return $"ID: {_orderId}, Table: {_tableNumber}, Items: {items}";
+            return $"Order: {_orderId}\nTable: {_tableNumber}\nItems: {items}\nTotal: {totalCost.ToString("C")}";
         }
 
 

@@ -21,20 +21,24 @@
             {
                 Console.WriteLine(item);
             }
+
+            Console.WriteLine();
         }
 
         // Skapar en order och lägger den högst upp på listan samt loggar detta
         public void CreateOrder(Order order)
         {
             _orders.Enqueue(order);
-            Console.WriteLine($"NEW ORDER: {order}");
+            Console.WriteLine($"New order:\n{order}");
+            Console.WriteLine();
         }
 
         // Hanterar (tar bort) order som är först i kön och loggar detta
         public void HandleOrder()
         {
             var order = _orders.Dequeue();
-            Console.WriteLine($"Handled order: {order}");
+            Console.WriteLine($"Handled order:\n{order}");
+            Console.WriteLine();
         }
 
         // Skriv ut alla ordrar i kön
@@ -44,6 +48,7 @@
             foreach (var order in _orders)
             {
                 Console.WriteLine(order);
+                Console.WriteLine();
             }
         }
 
@@ -51,7 +56,8 @@
         public void ShowNextOrder()
         {
             var order = _orders.Peek();
-            Console.WriteLine($"Next order: {order}");
+            Console.WriteLine($"Next order:\n{order}");
+            Console.WriteLine();
         }
 
         // Skriv ut antal ordrar i kön
@@ -59,17 +65,18 @@
         {
             if (_orders.Count == 1)
             {
-                Console.WriteLine($"Det är {_orders.Count} order i kön.");
+                Console.WriteLine($"There is {_orders.Count} order in queue.");
             }
             else if (_orders.Count > 1)
             {
-                Console.WriteLine($"Det är {_orders.Count} ordrar i kön.");
+                Console.WriteLine($"There are {_orders.Count} orders in queue.");
             }
             else if (_orders.Count == 0)
             {
-                Console.WriteLine("Det finns inga ordrar i kön.");
+                Console.WriteLine("There are no orders in queue.");
             }
-            
+            Console.WriteLine();
+
         }
 
 
