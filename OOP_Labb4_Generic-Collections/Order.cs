@@ -31,8 +31,8 @@
                 totalCost += cost.Price;
             }
             // Vid beställning av flera rätter sammanfogas dessa till en sträng
-            string items = string.Join(", ", _orderItems);
-            return $"Order: {_orderId}\nTable: {_tableNumber}\nItems: {items}\nTotal: {totalCost.ToString("C")}";
+            string items = string.Join("\n",_orderItems);
+            return $"Order: {_orderId}\nTable: {_tableNumber}\nItems:\n{items}\nTotal: {totalCost.ToString("C")}";
         }
 
 
