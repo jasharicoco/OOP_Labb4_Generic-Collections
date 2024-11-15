@@ -22,7 +22,7 @@
                 Console.WriteLine(item);
             }
 
-            Console.WriteLine();
+            Console.WriteLine("\n--------------");
         }
 
         // Skapar en order och lägger den högst upp på listan samt loggar detta
@@ -30,7 +30,7 @@
         {
             _orders.Enqueue(order);
             Console.WriteLine($"New order:\n{order}");
-            Console.WriteLine();
+            Console.WriteLine("\n--------------");
         }
 
         // Hanterar (tar bort) order som är först i kön och loggar detta
@@ -38,7 +38,7 @@
         {
             var order = _orders.Dequeue();
             Console.WriteLine($"Handled order:\n{order}");
-            Console.WriteLine();
+            Console.WriteLine("\n--------------");
         }
 
         // Skriv ut alla ordrar i kön
@@ -48,7 +48,7 @@
             foreach (var order in _orders)
             {
                 Console.WriteLine(order);
-                Console.WriteLine();
+                Console.WriteLine("\n--------------");
             }
         }
 
@@ -57,7 +57,7 @@
         {
             var order = _orders.Peek();
             Console.WriteLine($"Next order:\n{order}");
-            Console.WriteLine();
+            Console.WriteLine("\n--------------");
         }
 
         // Skriv ut antal ordrar i kön
@@ -65,17 +65,17 @@
         {
             if (_orders.Count == 1)
             {
-                Console.WriteLine($"There is {_orders.Count} order in queue.");
+                Console.WriteLine($"\nThere is {_orders.Count} order in queue.");
             }
             else if (_orders.Count > 1)
             {
-                Console.WriteLine($"There are {_orders.Count} orders in queue.");
+                Console.WriteLine($"\nThere are {_orders.Count} orders in queue.");
             }
             else if (_orders.Count == 0)
             {
-                Console.WriteLine("There are no orders in queue.");
+                Console.WriteLine("\nThere are no orders in queue.");
             }
-            Console.WriteLine();
+            Console.WriteLine("\n--------------");
 
         }
 
