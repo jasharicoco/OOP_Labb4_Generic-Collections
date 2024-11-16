@@ -8,6 +8,9 @@
         private List<MenuItem> _orderItems;
         private int _tableNumber;
 
+        public int OrderId { get { return _orderId; } }
+        public int TableNumber { get { return _tableNumber; } }
+
         public Order(List<MenuItem> orderItems, int tableNumber)
         {
             // Automatiskt skapande av id
@@ -25,14 +28,12 @@
 
         public override string ToString()
         {
-            decimal totalCost = 0;
-            foreach (var cost in _orderItems)
-            {
-                totalCost += cost.Price;
-            }
             // Vid beställning av flera rätter sammanfogas dessa till en sträng
-            string items = string.Join("\n",_orderItems);
-            return $"Order: {_orderId}\nTable: {_tableNumber}\n\n{items}\n\nTotal: {totalCost.ToString("C")}\n--------------";
+            string items = string.Join("\n", _orderItems.Select(item => $"1 st {item.Name}"));
+            // Spara totalen i en decimal
+            decimal totalCost = _orderItems.Sum(item => item.Price);
+
+            return $"Order {_orderId}:\n{items}\nTotal: {totalCost.ToString("C")}\nTo table number {_tableNumber}\n";
         }
 
 

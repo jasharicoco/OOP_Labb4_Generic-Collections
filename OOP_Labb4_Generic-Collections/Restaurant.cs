@@ -21,34 +21,29 @@
             {
                 Console.WriteLine(item);
             }
-
-            Console.WriteLine("\n--------------");
         }
 
         // Skapar en order och lägger den högst upp på listan samt loggar detta
         public void CreateOrder(Order order)
         {
             _orders.Enqueue(order);
-            Console.WriteLine($"New order:\n{order}");
-            Console.WriteLine("\n--------------");
+            Console.WriteLine($"Order number {order.OrderId} added");
         }
 
         // Hanterar (tar bort) order som är först i kön och loggar detta
         public void HandleOrder()
         {
             var order = _orders.Dequeue();
-            Console.WriteLine($"Handled order:\n{order}");
-            Console.WriteLine("\n--------------");
+            Console.WriteLine($"Handled order {order.OrderId} for table {order.TableNumber}");
         }
 
         // Skriv ut alla ordrar i kön
         public void ShowOrders()
         {
-            Console.WriteLine("List of current orders:");
+            Console.WriteLine("Current orders:");
             foreach (var order in _orders)
             {
                 Console.WriteLine(order);
-                Console.WriteLine("\n--------------");
             }
         }
 
@@ -56,8 +51,7 @@
         public void ShowNextOrder()
         {
             var order = _orders.Peek();
-            Console.WriteLine($"Next order:\n{order}");
-            Console.WriteLine("\n--------------");
+            Console.WriteLine($"Next order in queue:\n{order}");
         }
 
         // Skriv ut antal ordrar i kön
@@ -65,17 +59,16 @@
         {
             if (_orders.Count == 1)
             {
-                Console.WriteLine($"\nThere is {_orders.Count} order in queue.");
+                Console.WriteLine($"There is {_orders.Count} order in queue");
             }
             else if (_orders.Count > 1)
             {
-                Console.WriteLine($"\nThere are {_orders.Count} orders in queue.");
+                Console.WriteLine($"There are {_orders.Count} orders in queue");
             }
             else if (_orders.Count == 0)
             {
-                Console.WriteLine("\nThere are no orders in queue.");
+                Console.WriteLine("There are no orders in queue");
             }
-            Console.WriteLine("\n--------------");
 
         }
 
