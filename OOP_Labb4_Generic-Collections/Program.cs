@@ -28,11 +28,11 @@
             Ziggi.AddToMenu(PineapplePizza);
             Ziggi.AddToMenu(SourdoughGarlicSlices);
             Ziggi.AddToMenu(SoftDrinks);
-            Console.WriteLine("\n--------------\n");
+            Ziggi.EmptyRow(); // Tom rad
 
             // Skriver ut menyn
             Ziggi.ShowMenu();
-            Console.WriteLine("\n--------------\n");
+            Ziggi.Lines(); // Separations-streck
 
             // Skapar nya ordrar, lägger till dem i kön samt loggar detta
             Order order1 = new Order(new List<MenuItem>(), 4);
@@ -52,17 +52,17 @@
             order3.AddItem(PineapplePizza);
             order3.AddItem(SoftDrinks);
             Ziggi.CreateOrder(order3);
-            
-            Console.WriteLine("\n--------------\n");
+
+            Ziggi.Lines(); // Separations-streck
             Ziggi.ShowOrders();
-            Console.WriteLine("--------------\n");
+            Ziggi.Lines(); // Separations-streck
             Ziggi.ShowOrderCount();
-            Console.WriteLine();
+            Ziggi.EmptyRow(); // Tom rad
             Ziggi.ShowNextOrder();
             Ziggi.HandleOrder();
             Console.WriteLine();
             Ziggi.ShowOrderCount();
-            Console.WriteLine("\n--------------\n");
+            Ziggi.Lines(); // Separations-streck
 
             Order order4 = new Order(new List<MenuItem>(), 2);
             order4.AddItem(SourdoughGarlicSlices);
@@ -70,17 +70,17 @@
             order4.AddItem(SoftDrinks);
             Ziggi.CreateOrder(order4);
 
-            Console.WriteLine();
+            Ziggi.EmptyRow(); // Tom rad
             Ziggi.ShowOrderCount();
-            Console.WriteLine();
+            Ziggi.EmptyRow(); // Tom rad
             Ziggi.HandleOrder();
             Ziggi.HandleOrder();
-            Console.WriteLine();
+            Ziggi.EmptyRow(); // Tom rad
             Ziggi.ShowOrderCount();
-            Console.WriteLine("\n--------------\n");
+            Ziggi.Lines(); // Separations-streck
             Ziggi.ShowNextOrder();
             Ziggi.HandleOrder();
-            Console.WriteLine();
+            Ziggi.EmptyRow(); // Tom rad
             Ziggi.ShowOrderCount();
 
             Console.ReadKey();

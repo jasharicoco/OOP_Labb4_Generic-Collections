@@ -10,16 +10,23 @@
         public void AddToMenu(MenuItem menuItem)
         {
             _menu.Add(menuItem);
-            Console.WriteLine($"Added to menu: {menuItem}");
+            PrintMessage($"Added to menu: {menuItem}");
         }
 
         // Visar menyn
         public void ShowMenu()
         {
             Console.WriteLine("Menu:");
-            foreach (var item in _menu)
+            if (_menu.Count == 0)
             {
-                Console.WriteLine(item);
+                PrintMessage("There is no menu yet.");
+            }
+            else
+            {
+                foreach (var item in _menu)
+                {
+                    PrintMessage($"{item}");
+                }
             }
         }
 
@@ -27,31 +34,52 @@
         public void CreateOrder(Order order)
         {
             _orders.Enqueue(order);
-            Console.WriteLine($"Order number {order.OrderId} added");
+            PrintMessage($"Order number {order.OrderId} added");
         }
 
         // Hanterar (tar bort) order som är först i kön och loggar detta
         public void HandleOrder()
         {
-            var order = _orders.Dequeue();
-            Console.WriteLine($"Handled order {order.OrderId} for table {order.TableNumber}");
+            if (_orders.Count == 0)
+            {
+                PrintMessage("There are no orders to handle");
+            }
+            else
+            {
+                var order = _orders.Dequeue();
+                PrintMessage($"Handled order {order.OrderId} for table {order.TableNumber}");
+            }
         }
 
         // Skriv ut alla ordrar i kön
         public void ShowOrders()
         {
-            Console.WriteLine("Current orders:");
-            foreach (var order in _orders)
+            if (_orders.Count == 0)
             {
-                Console.WriteLine(order);
+                PrintMessage("There are no orders in queue");
+            }
+            else
+            {
+                Console.WriteLine("Current orders:");
+                foreach (var order in _orders)
+                {
+                    PrintMessage($"{order}");
+                }
             }
         }
 
         // Skriv ut order som är näst i kön
         public void ShowNextOrder()
         {
-            var order = _orders.Peek();
-            Console.WriteLine($"Next order in queue:\n{order}");
+            if (_orders.Count == 0)
+            {
+                PrintMessage("There are no orders in queue");
+            }
+            else
+            {
+                var order = _orders.Peek();
+                PrintMessage($"Next order in queue:\n{order}");
+            }
         }
 
         // Skriv ut antal ordrar i kön
@@ -59,19 +87,32 @@
         {
             if (_orders.Count == 1)
             {
-                Console.WriteLine($"There is {_orders.Count} order in queue");
+                PrintMessage($"There is {_orders.Count} order in queue");
             }
             else if (_orders.Count > 1)
             {
-                Console.WriteLine($"There are {_orders.Count} orders in queue");
+                PrintMessage($"There are {_orders.Count} orders in queue");
             }
             else if (_orders.Count == 0)
             {
-                Console.WriteLine("There are no orders in queue");
+                PrintMessage("There are no orders in queue");
             }
 
         }
 
+        public void PrintMessage(string message)
+        {
+            Console.WriteLine(message);
+        }
 
+        public void Lines()
+        {
+            Console.WriteLine("\n--------------\n");
+        }
+
+        public void EmptyRow()
+        {
+            Console.WriteLine();
+        }
     }
 }
